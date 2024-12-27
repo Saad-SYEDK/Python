@@ -1,3 +1,4 @@
+def quick_sort(array, low, hi):
 # Quick Sort Algorithm
 # 1. Choose a pivot element
 #     first/last/random/median element can be chosen as the pivot element
@@ -6,7 +7,6 @@
 # 3. Now the pivot is in the correct position, no need to touch the pivot again
 # 4. Recursively apply the same process to the left and right side of the pivot(excluding the pivot)
 # 5. If the array has one or zero elements return - base case
-def quick_sort(array, low, hi):
     if low < hi:
         pivot = array[hi]
         
@@ -28,6 +28,48 @@ def quick_sort(array, low, hi):
         quick_sort(array, low , i-1)    # left side of the array - from start till pivot(excluding pivot)
         quick_sort(array, i+1 , hi)    # right side of the array - from pivot(excluded) till end.
 
+def merge_sort(array):
+# Merge Sort Algorithm
+# 1. Divide the given array into two halves
+#     find the mid point of the array and then make two separate arrays to store left and right halves
+# 2. recursively repeat the 1st step until there is only 1 element left in the array - base case
+# 3. Merge the left and right halves
+#     iterate through both the arrays and sort them
+
+    
+    if len(array) <= 1: # Base case
+        return
+    mid = len(array) // 2
+    left_half = array[0:mid] # start till mid
+    right_half = array[mid:len(array)] # mid till end
+    merge_sort(left_half)
+    merge_sort(right_half)
+    
+    # Merging
+    i = 0 # to iterate through left_half
+    j = 0 # to iterate through right_half
+    k = 0 # to iterate through original array 
+    
+    while i < len(left_half) and j < len(right_half): #if any one of the array is iterated we will exit from the loop
+        if left_half[i] <= right_half[j]:
+            array[k] = left_half[i]
+            i += 1
+        else:
+            array[k] = right_half[j]
+            j += 1
+        k += 1
+    
+    # if some elements are left in left/right half we will add them to the main array 
+    while i < len(left_half):
+        array[k] = left_half[i]
+        i += 1
+        k += 1
+    while j < len(right_half):
+        array[k] = right_half[j]
+        j += 1
+        k += 1       
+
+# This is main
 array = [3, 2, 4, 6,1, 9]
-quick_sort(array, 0, len(array)-1)
+merge_sort(array)
 print(array)
