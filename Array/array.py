@@ -7,6 +7,10 @@ def quick_sort(array, low, hi):
 # 3. Now the pivot is in the correct position, no need to touch the pivot again
 # 4. Recursively apply the same process to the left and right side of the pivot(excluding the pivot)
 # 5. If the array has one or zero elements return - base case
+# Time Complexity : O(n log n) in Best and Average cases.
+#                   O(n^2) in worst case - if the pivot element is always the smallest or largest, we can avoid this by randomized pivot selection or any other methods to select the pivot.
+# Space Complexity : O(n log n) in best/average case, O(n) in worst case
+
     if low < hi:
         pivot = array[hi]
         
@@ -35,7 +39,8 @@ def merge_sort(array):
 # 2. recursively repeat the 1st step until there is only 1 element left in the array - base case
 # 3. Merge the left and right halves
 #     iterate through both the arrays and sort them
-
+# Time Complexity : O(n log n) in all cases
+# Space Complexity : O(n) - to store the extra arrays in all cases
     
     if len(array) <= 1: # Base case
         return
@@ -77,6 +82,8 @@ def binary_search(array, target):
 #     4a. If the element at the mid index is smaller than target, move the lo pointer to mid+1
 #     4b. IF the element at the mid index is larget than target, move the hi pointer to mid -1
 # 5. Repeat this until lo<=hi, if we get out of the loop before returning, the element does not exist in the array.
+# Time Complexity : O(1) in Best Case, O(log n) in Average/Worst Case
+# Space Complexity : O(1) in all cases  
     lo, hi = 0, len(array)-1
     while lo <= hi:
         mid = (lo+hi) // 2
