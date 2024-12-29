@@ -69,7 +69,26 @@ def merge_sort(array):
         j += 1
         k += 1       
 
+def binary_search(array, target):
+# Binary Search Algorithm
+# 1. Requires sorted array as input
+# 2. Two pointers - lo(for staritng index of array) and hi(for end-index of array )
+# 3. Find mid index - if element at mid indext is equal to the target return the index, else
+#     4a. If the element at the mid index is smaller than target, move the lo pointer to mid+1
+#     4b. IF the element at the mid index is larget than target, move the hi pointer to mid -1
+# 5. Repeat this until lo<=hi, if we get out of the loop before returning, the element does not exist in the array.
+    lo, hi = 0, len(array)-1
+    while lo <= hi:
+        mid = (lo+hi) // 2
+        if array[mid] == target:
+            return mid # Target found - return index of the target element
+        elif array[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1 # Target does not exist in the array, return -1 which means element does not exist
+
 # This is main
 array = [3, 2, 4, 6,1, 9]
 merge_sort(array)
-print(array)
+print(binary_search)
