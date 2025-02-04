@@ -18,15 +18,12 @@ def quick_sort(array, low, hi):
         for j in range(low, hi):
             if array[j] <= pivot:
                 i += 1
-                #swap array[i] wth array[j]
-                temp = array[i] 
-                array[i] = array[j]
-                array[j] = temp
-        i += 1 # This is our pivot index i.e the correct position of out pivot element
+                #swap array[i] wth array[j] if i and j are not equal
+                if i != j:
+                    array[i], array[j] = array[j], array[i]
+        i += 1 # This is our pivot index i.e the correct position of our pivot element
         # swap array[i] with array[hi]-> this is the pivot element
-        temp = array[i]
-        array[i] = array[hi]
-        array[hi] = temp
+        array[i], array[j] = array[j], array[i]
         
         
         quick_sort(array, low , i-1)    # left side of the array - from start till pivot(excluding pivot)
