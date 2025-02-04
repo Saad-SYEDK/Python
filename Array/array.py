@@ -9,7 +9,7 @@ def quick_sort(array, low, hi):
 # 5. If the array has one or zero elements return - base case
 # Time Complexity : O(n log n) in Best and Average cases.
 #                   O(n^2) in worst case - if the pivot element is always the smallest or largest, we can avoid this by randomized pivot selection or any other methods to select the pivot.
-# Space Complexity : O(n log n) in best/average case, O(n) in worst case
+# Space Complexity : O(log n) in best/average case, O(n) in worst case
 
     if low < hi:
         pivot = array[hi]
