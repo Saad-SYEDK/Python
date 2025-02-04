@@ -23,7 +23,7 @@ def quick_sort(array, low, hi):
                     array[i], array[j] = array[j], array[i]
         i += 1 # This is our pivot index i.e the correct position of our pivot element
         # swap array[i] with array[hi]-> this is the pivot element
-        array[i], array[j] = array[j], array[i]
+        array[i], array[hi] = array[hi], array[i]
         
         
         quick_sort(array, low , i-1)    # left side of the array - from start till pivot(excluding pivot)
@@ -94,5 +94,6 @@ def binary_search(array, target):
 
 # This is main
 array = [3, 2, 4, 6,1, 9]
-merge_sort(array)
-print(binary_search)
+quick_sort(array, 0, len(array)-1)
+# merge_sort(array)
+print(array)
