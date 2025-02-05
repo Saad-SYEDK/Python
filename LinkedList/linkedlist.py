@@ -61,6 +61,28 @@ class LinkedList:
         # If we iterated through the whole list and are not able to find the value, return 
         print("Value not found: Reached end of list!")
     
+    # Delete a node which contains the value, if there are multiple nodes with the same value, delete the first one
+    def delete_node(self, value):
+        # if the list is empty return
+        if self.head is None:
+            print("Empty List!")
+            return
+        # if the value is present in the head node, we have to update the head pointer
+        elif self.head.data == value:
+            self.head = self.head.next
+            return
+        
+        current = self.head
+        # We need to stop at a node before the node containing the value inorder to delete that node
+        while current.next:
+            if current.next.data == value:
+                current.next = current.next.next
+                return
+            current = current.next        
+        # If we reach the end without finding the value, return
+        print("Value does not exists")
+    
+    
     def display(self):
         # If there are no elements in the list.
         if self.head is None:
@@ -85,10 +107,14 @@ ll.append(4)
 ll.insert_at(2, 3)
 
 ll.prepend(0)
-
 ll.display()
+
 
 ll.insert_after(4, 5)
-
 ll.display()
+
+
+ll.delete_node(3)
+ll.display()
+
         
