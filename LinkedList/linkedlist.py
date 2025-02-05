@@ -31,4 +31,40 @@ class LinkedList:
     
     # Insert at a given index
     def insert_at(self, index, data):
-        pass
+        # If the given index is 0 we have to prepend.
+        if index == 0:
+            self.prepend(data)
+            return
+        # Else we iterate till we reach one node before the index and update its next pointer
+        current = self.head
+        while index > 1:
+            current = current.next
+            index -= 1
+        node = Node(data, current.next)
+        current.next = node
+    
+    def display(self):
+        # If there are no elements in the list.
+        if self.head is None:
+            print("List Empty!")
+            return
+
+        current = self.head # Iterator
+        while current: # Till we reach null
+            print(current.data, end="")
+            print("->", end="")
+            current = current.next
+        print("NULL")
+    
+
+# Testing
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(4)
+
+ll.insert_at(2, 3)
+
+ll.prepend(0)
+ll.display()
+        
