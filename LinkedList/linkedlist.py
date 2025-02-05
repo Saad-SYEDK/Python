@@ -82,6 +82,27 @@ class LinkedList:
         # If we reach the end without finding the value, return
         print("Value does not exists")
     
+    # Delete a node at a givin indez
+    def delete_at_position(self, index):
+        # IF the list is empty return
+        if self.head is None:
+            print("Empty List!")
+            return
+        # If the index is first node, update head 
+        elif index == 0:
+            self.head = self.head.next
+            return
+        
+        current = self.head
+        # Iterate till we reach one node before the node we have to delete
+        while current.next:
+            if index == 1:
+                current.next = current.next.next
+                return
+            index -=1
+            current = current.next
+        # if we reach the end before reaching the index, return
+        print("Indext out of range!")
     
     def display(self):
         # If there are no elements in the list.
@@ -114,7 +135,8 @@ ll.insert_after(4, 5)
 ll.display()
 
 
-ll.delete_node(3)
+ll.delete_node(5)
 ll.display()
 
-        
+ll.delete_at_position(2)
+ll.display()
