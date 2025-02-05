@@ -117,6 +117,35 @@ class LinkedList:
             current = current.next
         print("NULL")
     
+    # Return the length of list 
+    def get_length(self) -> int:
+        # If the list is empty, print 0 and return
+        if self.head is None:
+            return 0
+        
+        counter = 0 # To keep the count of the nodes
+        current = self.head # to itereate through the nodes
+        # While there are nodes in the list
+        while current:
+            counter += 1
+            current = current.next
+        return counter
+    
+    # Find an index of a given data and return it, else -1 
+    def find(self, data) -> int:
+        # If the list is empty, return -1 
+        if self.head is None:
+            return -1
+        
+        counter = 0
+        current = self.head
+        while current:
+            if current.data == data:
+                return counter
+            current = current.next
+            counter += 1
+        # If we reach the end without finding the data, return -1
+        return -1
 
 # Testing the LinkedList
 ll = LinkedList() 
@@ -140,3 +169,7 @@ ll.display()
 
 ll.delete_at_position(2)
 ll.display()
+
+print(ll.get_length())
+
+print(ll.find(4))
