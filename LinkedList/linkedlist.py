@@ -147,6 +147,10 @@ class LinkedList:
         # If we reach the end without finding the data, return -1
         return -1
 
+# Advanced Mehods:
+    # reverse, sort, remove_duplicates, has_cycle, find middle, merge_sorted, nth from end
+# Try to implement this method wihtout watching the code, do some research to understand what these methods are supposed to do and implement them
+
 # Testing the LinkedList
 ll = LinkedList() 
 
