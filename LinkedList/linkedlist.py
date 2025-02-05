@@ -43,6 +43,24 @@ class LinkedList:
         node = Node(data, current.next)
         current.next = node
     
+    # insert after a given value, if there are multiple values we will insert after the first one.
+    def insert_after(self, value, data):
+        # If the list is empty return
+        if self.head is None:
+            print("Value not found: Empty list!")
+            return
+        
+        # Itereate till we find the node containing the value
+        current = self.head
+        while current:
+            if current.data == value:
+                node = Node(data, current.next)
+                current.next = node
+                return
+            current = current.next
+        # If we iterated through the whole list and are not able to find the value, return 
+        print("Value not found: Reached end of list!")
+    
     def display(self):
         # If there are no elements in the list.
         if self.head is None:
@@ -57,8 +75,9 @@ class LinkedList:
         print("NULL")
     
 
-# Testing
-ll = LinkedList()
+# Testing the LinkedList
+ll = LinkedList() 
+
 ll.append(1)
 ll.append(2)
 ll.append(4)
@@ -66,5 +85,10 @@ ll.append(4)
 ll.insert_at(2, 3)
 
 ll.prepend(0)
+
+ll.display()
+
+ll.insert_after(4, 5)
+
 ll.display()
         
