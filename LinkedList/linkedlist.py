@@ -205,46 +205,97 @@ class LinkedList:
                 return True
         # If we reach the end of the list, it means there is no cycle hence return False 
         return False
+    
+    # Return the middle index of the list
+    def find_middle(self) -> int:
+        # If the list is empty return -1
+        if self.head is None:
+            return -1
+        slow = fast = self.head
+        counter = 0
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            counter += 1
+        return counter
+    
+    # Given two sorted lists, merge both
+    def merge_sorted(self, list):
+        if self.head is None:
+            return list.head
+        elif list.head is None:
+            return self.head
+
+        if self.head.data > list.head.data:
+            new_head = list.head
+            list2 = list.head.next
+            list1 = self.head
+        else:
+            new_head = self.head
+            list1 = self.head.next
+            list2 = list.head
+            
+        current = new_head
+        
+        while list1 and list2:
+            if  list1.data > list2.data:
+                current.next = list2
+                list2 = list2.next
+            else:
+                current.next = list1
+                list1 = list1.next
+            current = current.next
+        
+        if list1:
+            current.next = list1
+        
+        if list2:
+            current.next = list2
+        
+        new_list = LinkedList()
+        new_list.head = new_head
+        return new_list
         
 # Testing the LinkedList
 ll = LinkedList() 
 
-ll.append(1)
-ll.append(2)
-ll.append(4)
 
-ll.insert_at(2, 3)
+# ll.delete_at_position(2)
+# ll.display()
 
-ll.prepend(0)
-ll.display()
+# print(ll.get_length())
 
+# print(ll.find(4))
 
-ll.insert_after(4, 5)
-ll.display()
+# ll.display()
+# ll.reverse()
+# ll.display()
 
-
-ll.delete_node(5)
-ll.display()
-
-ll.delete_at_position(2)
-ll.display()
-
-print(ll.get_length())
-
-print(ll.find(4))
-
-ll.display()
-ll.reverse()
-ll.display()
-
-ll.append(1)
-ll.append(4)
-ll.insert_after(3,3)
-ll.display()
-ll.remove_duplicates()
-ll.display()
+# ll.append(1)
+# ll.append(4)
+# ll.insert_after(3,3)
+# ll.display()
+# ll.remove_duplicates()
+# ll.display()
 
 # Creating a cycle manually
 
 #     ll.head.next.next = ll. head
 #     print(ll.contains_cycle())
+
+# print(ll.find_middle())
+ll.append(0)
+ll.append(2)
+ll.append(4)
+ll.display()
+
+l2 = LinkedList()
+l2.append(1)
+l2.append(3)
+l2.append(5)
+
+l2.display()
+
+l3 = ll.merge_sorted(l2)
+
+l3.display()
