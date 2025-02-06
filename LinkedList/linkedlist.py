@@ -150,7 +150,26 @@ class LinkedList:
 # Advanced Mehods:
     # reverse, sort, remove_duplicates, has_cycle, find middle, merge_sorted, nth from end
 # Try to implement this method wihtout watching the code, do some research to understand what these methods are supposed to do and implement them
-
+    
+    # Reverse the order of the given linked list, change the links/next pointers and update the head to the last node 
+    def reverse(self):
+        # If the list is empty, return
+        if self.head is None:
+            return
+        
+        current = self.head
+        # If the list has only one node, no need to do anything
+        if current.next is None:
+            return
+        # Logic - we will itereate through every node and update their next pointer to point to the previous pointer.
+        prev = None
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+        
 # Testing the LinkedList
 ll = LinkedList() 
 
@@ -177,3 +196,7 @@ ll.display()
 print(ll.get_length())
 
 print(ll.find(4))
+
+ll.display()
+ll.reverse()
+ll.display()
