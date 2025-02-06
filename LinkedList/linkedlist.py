@@ -169,6 +169,42 @@ class LinkedList:
             prev = current
             current = next
         self.head = prev
+    
+    # Given a linked list remove all the nodes which contains data that already exists
+    def remove_duplicates(self):
+        if self.head is None:
+            return
+        # In order to keep the information about data which we already have, we will make a dictionary which will have keys as the data, if a data key already exists in the dictionary we will delete that node.
+        seen = {}
+        current = self.head
+        seen[current.data] = 1
+        while current.next:
+            if current.next.data in seen:
+                current.next = current.next.next
+            else:
+                seen[current.next.data] = 1
+                current = current.next
+    
+    # If the list contains cycle i.e if any node is connected to a node before it, the list contains a loop/cycle and will be any infinite loop. If the list contains cycle, return true else false 
+    def contains_cycle(self) -> bool:
+        # Floyd's cycle detection or Tortoise and Hare Algorithm
+        # if the list is empty or there is only single node. Return False
+        if self.head is None or self.head.next is None:
+            return False
+        
+        # Initialize two pointers at head
+        slow = fast = self.head
+        while fast and fast.next:
+            # Slow pointer moves 1 step at a time
+            slow = slow.next
+            # Fast pointer moves 2 steps at a time
+            fast = fast.next.next
+            
+            # If the two pointers end up in the same node it means there is a cyclee
+            if slow == fast:
+                return True
+        # If we reach the end of the list, it means there is no cycle hence return False 
+        return False
         
 # Testing the LinkedList
 ll = LinkedList() 
@@ -200,3 +236,15 @@ print(ll.find(4))
 ll.display()
 ll.reverse()
 ll.display()
+
+ll.append(1)
+ll.append(4)
+ll.insert_after(3,3)
+ll.display()
+ll.remove_duplicates()
+ll.display()
+
+# Creating a cycle manually
+
+#     ll.head.next.next = ll. head
+#     print(ll.contains_cycle())
