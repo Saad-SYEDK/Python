@@ -211,32 +211,57 @@ class LinkedList:
         # If the list is empty return -1
         if self.head is None:
             return -1
+        
+        # Two pointers starting at head
         slow = fast = self.head
         counter = 0
+        
         while fast and fast.next:
+        # Slow pointer moves one step while the fast pointer moves two steps at a time
             slow = slow.next
             fast = fast.next.next
             counter += 1
+        # Logic - when the fast pointer reaches the end, the slow pointer will be at the middle
+        # There is no need for slow pointer if we want to return the index, but if we want to return the middle node, we can return the slow pointer
         return counter
     
     # Given two sorted lists, merge both
-    def merge_sorted(self, list):
+    def merge_sorted(self, given_list):
+        # Works only if both lists are sorted, better if you add a logic to check if both lists are sorted
+        
+        # Note : we use given_list to access the second list
+        #        "self" will be used to access the first list 
+        
+        # If anyone of the list is empty, we return the other list.
+        # Works correctly even if both lists are empty, None will be returned
         if self.head is None:
-            return list.head
-        elif list.head is None:
+            return given_list.head
+        elif given_list.head is None:
             return self.head
 
-        if self.head.data > list.head.data:
-            new_head = list.head
-            list2 = list.head.next
+        # We find need to create a head pointer for the new list. 
+        new_head = None
+        
+        # iterators for each lists
+        list1 = None
+        list2 = None
+        
+        # The smallest node should be the head.
+        # Once we select which list should be the head, we shall move its iterator to the next node
+        if self.head.data > given_list.head.data:
+            new_head = given_list.head
+            list2 = given_list.head.next 
             list1 = self.head
         else:
             new_head = self.head
             list1 = self.head.next
-            list2 = list.head
-            
+            list2 = given_list.head
+        
+        # Iterator for new list
         current = new_head
         
+        # Basic merge_sort logic - while both the list have elements, compare and select the smaller node.
+        # Once any one of the list is iterated, connect the rest with the remaining list
         while list1 and list2:
             if  list1.data > list2.data:
                 current.next = list2
@@ -245,16 +270,21 @@ class LinkedList:
                 current.next = list1
                 list1 = list1.next
             current = current.next
-        
         if list1:
-            current.next = list1
-        
+            current.next = list1      
         if list2:
             current.next = list2
         
+        # Creating a new linkedlist and setting its head node
         new_list = LinkedList()
         new_list.head = new_head
+        # Returning the new list
         return new_list
+    
+    # Find the return the nth node or its index from the end 
+    def nth_from_end(self, n):
+        if self.head is None:
+            pass
         
 # Testing the LinkedList
 ll = LinkedList() 
