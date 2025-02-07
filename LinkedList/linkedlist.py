@@ -284,8 +284,29 @@ class LinkedList:
     # Find the return the nth node or its index from the end 
     def nth_from_end(self, n):
         if self.head is None:
-            pass
+            return
         
+        # Logic : we use 2 pointers, fast and slow
+        # The fast pointer will be n node ahead of the slow pointer
+        #  When the fast pointer reaches the end, the slow poitner will be the nth node from the end
+        slow = fast = self.head
+        
+        counter = 0 # If we want to return the index.
+        
+        # move the fast pointer n nodes ahead
+        while n:
+            fast = fast.next
+            if fast is None:
+                print("Index out of range!")
+                return
+            n -= 1
+        # Move both till the fast reaches the end
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+            counter += 1
+            
+        return counter # return slow if we want to return the node
 # Testing the LinkedList
 ll = LinkedList() 
 
@@ -327,5 +348,7 @@ l2.append(5)
 l2.display()
 
 l3 = ll.merge_sorted(l2)
-
 l3.display()
+
+
+print(l3.nth_from_end(0))
