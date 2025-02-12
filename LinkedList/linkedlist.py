@@ -213,7 +213,9 @@ class LinkedList:
             return -1
         
         # Two pointers starting at head
-        slow = fast = self.head
+        slow = self.head 
+        fast = self.head.next
+
         counter = 0
         
         while fast and fast.next:
@@ -223,7 +225,7 @@ class LinkedList:
             counter += 1
         # Logic - when the fast pointer reaches the end, the slow pointer will be at the middle
         # There is no need for slow pointer if we want to return the index, but if we want to return the middle node, we can return the slow pointer
-        return counter
+        return slow
     
     # Given two sorted lists, merge both
     def merge_sorted(self, given_list):
@@ -307,6 +309,69 @@ class LinkedList:
             counter += 1
             
         return counter # return slow if we want to return the node
+
+    # Sort given list
+    def sort(self):
+        if not self.head or not self.head.next:
+            return self
+        
+        mid = self.find_middle()
+        
+        # Divide left half and right half
+        right_half = LinkedList()
+        right_half.head = mid.next
+        left_half = LinkedList()
+        left_half.head = self.head
+        mid.next = None
+        
+        # Recusively divide until only one element or less are remaining
+        right_half = right_half.sort()
+        left_half = left_half.sort()
+        
+        # now we combine left half and right half in their correct order
+        
+        # If there are no elements in a list, we return the other list
+        if not right_half:
+            return left_half
+        if not left_half:
+            return right_half
+        
+        temp_list = LinkedList()
+        
+        # Iterator for right_half and left_half
+        right = right_half.head
+        left = left_half.head
+        
+        # Make the smallest node as head
+        if right.data > left.data:
+            temp_list.head = left
+            left = left.next
+        else:
+            temp_list.head = right
+            right = right.next
+            
+        # Iterator for temp list
+        curr = temp_list.head
+        
+        # Merging
+        while right and left:
+            if right.data > left.data:
+                curr.next = left
+                left = left.next
+            else:
+                curr.next = right
+                right = right.next
+            curr = curr.next
+        
+        if right:
+            curr.next = right
+        if left:
+            curr.next = left
+            
+        return temp_list
+        
+        
+        
 # Testing the LinkedList
 ll = LinkedList() 
 
@@ -335,20 +400,29 @@ ll = LinkedList()
 #     print(ll.contains_cycle())
 
 # print(ll.find_middle())
-ll.append(0)
-ll.append(2)
+# ll.append(0)
+# ll.append(2)
+# ll.append(4)
+# ll.display()
+
+# l2 = LinkedList()
+# l2.append(1)
+# l2.append(3)
+# l2.append(5)
+
+# l2.display()
+
+# l3 = ll.merge_sorted(l2)
+# l3.display()
+
+
+# print(l3.nth_from_end(0))
+
 ll.append(4)
+ll.append(3)
+ll.append(2)
+ll.append(1)
+
 ll.display()
-
-l2 = LinkedList()
-l2.append(1)
-l2.append(3)
-l2.append(5)
-
-l2.display()
-
-l3 = ll.merge_sorted(l2)
-l3.display()
-
-
-print(l3.nth_from_end(0))
+ll = ll.sort()
+ll.display() 
