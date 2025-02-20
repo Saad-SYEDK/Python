@@ -31,6 +31,10 @@ class LinkedList:
     
     # Insert at a given index
     def insert_at(self, index, data):
+        # If the given index is larger than the list, we return.
+        if index > self.get_length():
+            print("Index out of range!")
+            return
         # If the given index is 0 we have to prepend.
         if index == 0:
             self.prepend(data)
@@ -84,6 +88,10 @@ class LinkedList:
     
     # Delete a node at a givin indez
     def delete_at_position(self, index):
+        # If the index is greater than list, return 
+        if index > self.get_length():
+            print("Index out of range!")
+            return
         # IF the list is empty return
         if self.head is None:
             print("Empty List!")
