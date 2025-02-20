@@ -312,6 +312,7 @@ class LinkedList:
 
     # Sort given list
     def sort(self):
+        # We are using a merge sort logic, we can implement any other sorting algorithm we want.
         if not self.head or not self.head.next:
             return self
         
