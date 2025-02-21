@@ -1,3 +1,10 @@
+'''
+    The only difference in doubly linked list is that it contains an extra pointer which points to
+    the previous node, this requires us to make some changed in all of our methods of singly linked list
+    to handle the prev pointer.
+    No need to code for write all the methods from scratch, just implement basic mehtods like insertion and deletion
+    and you will be good to go.
+'''
 class Node:
     def __init__(self, prev, data, next):
         self.prev = prev
