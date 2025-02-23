@@ -1,3 +1,10 @@
+'''
+    A circular linked list is a list in which the last node's next pointer is pointed to
+    the first/head node, this makes it a circle.
+    We need to maintain a tail pointer to be able to figure out the last node, else we might get
+    stuck in a loop while iterating.
+    No need to implement all the mehtods from scratch, just understand the basics and move on
+'''
 class Node:
     def __init__(self, data, next):
         self.data = data
