@@ -25,5 +25,25 @@ class CLL:
             self.tail.next = node
         self.tail = node
         self.tail.next = self.head
-        
-        
+    
+    def display(self):
+        if self.head is None:
+            print("Empty List!")
+            return
+        current = self.head
+        while True:
+            print(current.data, end="->")
+            if current == self.tail:
+                print()
+                return
+            current = current.next
+    
+
+# Checking
+list = CLL()
+list.append(1)
+list.append(2)
+
+list.prepend(0)
+
+list.display()
