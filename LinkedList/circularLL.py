@@ -15,3 +15,15 @@ class CLL:
             self.tail = node
         self.tail.next = self.head 
     
+    def append(self, data):
+        node = Node(data, None)
+        if self.head is None:
+            self.head = node
+        if self.tail is None:
+            self.tail = node
+        else:
+            self.tail.next = node
+        self.tail = node
+        self.tail.next = self.head
+        
+        
