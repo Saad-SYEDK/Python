@@ -40,12 +40,12 @@ class CLL:
         current = self.head
         while True:
             print(current.data, end="->")
-            if current == self.tail:
+            if current == self.tail: #we can also use current == self.head, this means we have completed one full circle
                 print()
                 return
             current = current.next
-    
 
+    
 # Checking
 list = CLL()
 list.append(1)
