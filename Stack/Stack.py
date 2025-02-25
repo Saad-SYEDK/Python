@@ -1,4 +1,11 @@
-#implementing a Stack class using Python deque collection
+'''
+    Once you have implemented and completely understand linkedList and arrays, you can
+    implement Stack using both.
+    Stack can be implemented in python using List(basically arrays/linkedlist), deque(double ended queue)
+    or we can also use LIFO-Queue.
+'''
+
+#implementing a Stack class using Python deque collection, Try to implement in other way. 
 from collections import deque
 
 #The reason behind creating a seprate class instead of using deque directly is to define methods
@@ -77,6 +84,7 @@ def is_balanced(str):
         return False
 
 # Checking
-print(is_balanced("[a+b]*(x+2y)@@@*{gg+kk}"))
+# print(is_balanced("[a+b]*(x+2y)@@@*{gg+kk}"))
+print(1919%5)
     
     
