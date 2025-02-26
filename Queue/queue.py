@@ -18,6 +18,11 @@ class Queue:
     def size(self):
         return len(self.list)
 
+    def front(self):
+        item = self.list.pop()
+        self.list.appendleft(item)
+        return item
+
 # Exercise 1 - Producer-Consumer problem
 '''
     Read the question here :
@@ -34,6 +39,8 @@ class Queue:
     server_order thread is consuming the food orders.
 '''
 
+# Exercise 1 - Solution below, remove ''' before and after the code
+'''
 # Import threading and time module
 import threading
 import time
@@ -69,6 +76,10 @@ place_thread.start()
 #one second after the place order thread, start the serve thread
 time.sleep(1)
 serve_thread.start()
+
+'''
+
+# Exercise 2 - print binary numbers from 1 to 10 using Queue
 
 
         
