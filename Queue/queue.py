@@ -33,4 +33,43 @@ class Queue:
     This problem is a producer,consumer problem where place_order thread is producing orders whereas 
     server_order thread is consuming the food orders.
 '''
+
+# Import threading and time module
+import threading
+import time
+
+#Create a queue for order
+orders = Queue()
+
+# Place-order function
+def place_order(order):
+    for item in order:
+        # Add item into the queue
+        print("Placing order for", item)
+        orders.enqueue(item)
+        # Place new order into queue every 0.5 sec
+        time.sleep(0.5)
+
+# Server-order function
+def serve_order():
+    while not orders.isEmpty():
+        print("serving", orders.dequeue())
+        time.sleep(2)
+
+# Arguments for place_order
+order = ['pizza','samosa','pasta','biryani','burger']
+
+# Create two threads for place order and serve order
+place_thread = threading.Thread(target=place_order, args=(order,    ))
+serve_thread = threading.Thread(target=serve_order)
+
+# Start place_order thread
+place_thread.start()
+
+#one second after the place order thread, start the serve thread
+time.sleep(1)
+serve_thread.start()
+
+
+        
     
