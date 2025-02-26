@@ -39,48 +39,57 @@ class Queue:
     server_order thread is consuming the food orders.
 '''
 
-# Exercise 1 - Solution below, remove ''' before and after the code
-'''
+# Exercise 1 - Solution -> call the producer_consumer() constructor to see the answer
+
 # Import threading and time module
 import threading
 import time
+class producer_consumer:
+    def __init__(self): 
+        #Create a queue for order
+        self.orders = Queue()
+        # Arguments for place_order
+        order = ['pizza','samosa','pasta','biryani','burger']
 
-#Create a queue for order
-orders = Queue()
+        # Create two threads for place order and serve order
+        place_thread = threading.Thread(target=self.place_order, args=(order,    ))
+        serve_thread = threading.Thread(target=self.serve_order)
 
-# Place-order function
-def place_order(order):
-    for item in order:
-        # Add item into the queue
-        print("Placing order for", item)
-        orders.enqueue(item)
-        # Place new order into queue every 0.5 sec
-        time.sleep(0.5)
+        # Start place_order thread
+        place_thread.start()
 
-# Server-order function
-def serve_order():
-    while not orders.isEmpty():
-        print("serving", orders.dequeue())
-        time.sleep(2)
+        #one second after the place order thread, start the serve thread
+        time.sleep(1)
+        serve_thread.start()
 
-# Arguments for place_order
-order = ['pizza','samosa','pasta','biryani','burger']
+    # Place-order function
+    def place_order(self, order):
+        for item in order:
+            # Add item into the queue
+            print("Placing order for", item)
+            self.orders.enqueue(item)
+            # Place new order into queue every 0.5 sec
+            time.sleep(0.5)
 
-# Create two threads for place order and serve order
-place_thread = threading.Thread(target=place_order, args=(order,    ))
-serve_thread = threading.Thread(target=serve_order)
-
-# Start place_order thread
-place_thread.start()
-
-#one second after the place order thread, start the serve thread
-time.sleep(1)
-serve_thread.start()
-
-'''
-
-# Exercise 2 - print binary numbers from 1 to 10 using Queue
+    # Server-order function
+    def serve_order(self):
+        while not self.orders.isEmpty():
+            print("serving", self.orders.dequeue())
+            time.sleep(2)
 
 
-        
+
+
+# Exercise 2 - print binary numbers from 1 to n using Queue
+def print_binary(n):
+    queue = Queue()
+    queue.enqueue("1")
+    
+    for i in range(n):
+        current = queue.dequeue()
+        print(current)
+        queue.enqueue(current+"0")
+        queue.enqueue(current+"1")
+
+print_binary(10)
     
