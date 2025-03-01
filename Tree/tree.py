@@ -1,6 +1,7 @@
 class TreeNode:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, name, des):
+        self.name = name
+        self.des= des
         self.children = []
         self.parent = None
 
@@ -13,44 +14,43 @@ class TreeNode:
 
         return level
 
-    def print_tree(self):
+    def print_tree(self, option):
+        if option == "name":
+            data = self.name
+        elif option == "destination":
+            data = self.des
+        else:
+            data = self.name + " (" + self.des + ")"
         spaces = ' ' * self.get_level() * 3
         prefix = spaces + "|__" if self.parent else ""
-        print(prefix + self.data)
+        print(prefix + data)
         if self.children:
             for child in self.children:
-                child.print_tree()
+                child.print_tree(option)
 
     def add_child(self, child):
         child.parent = self
         self.children.append(child)
 
 def build_product_tree():
-    root = TreeNode("Electronics")
+    nilpul = TreeNode("Nilpul", "CEO")
+    
+    chinmay = TreeNode("Chinmay", "CTO")
+    nilpul.add_child(chinmay)
+    
+    vishwa = TreeNode("Vishwa", "Infra Head")
+    chinmay.add_child(vishwa)
+    chinmay.add_child(TreeNode("Amir", "Application Head"))
+    
+    vishwa.add_child(TreeNode("Dhaval", "Cloud Manager"))
+    vishwa.add_child(TreeNode("Abhijit", "App Manager"))
 
-    laptop = TreeNode("Laptop")
-    laptop.add_child(TreeNode("Mac"))
-    laptop.add_child(TreeNode("Surface"))
-    laptop.add_child(TreeNode("Thinkpad"))
-
-    cellphone = TreeNode("Cell Phone")
-    cellphone.add_child(TreeNode("iPhone"))
-    cellphone.add_child(TreeNode("Google Pixel"))
-    cellphone.add_child(TreeNode("Vivo"))
-
-    tv = TreeNode("TV")
-    tv.add_child(TreeNode("Samsung"))
-    tv.add_child(TreeNode("LG"))
-
-    root.add_child(laptop)
-    root.add_child(cellphone)
-    root.add_child(tv)
-
-    root.print_tree()
-
-
-
-
-
+    gels = TreeNode("Gels", "HR Head")
+    nilpul.add_child(gels)
+    
+    gels.add_child(TreeNode("Peter", "Recruitment Manager"))
+    gels.add_child(TreeNode("Waqas", "Policy Manager"))
+    
+    nilpul.print_tree("destination")
 #Checking
 build_product_tree()
