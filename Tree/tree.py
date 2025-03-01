@@ -21,7 +21,12 @@ class TreeNode:
             data = self.des
         else:
             data = self.name + " (" + self.des + ")"
-        spaces = ' ' * self.get_level() * 3
+        
+        level = self.get_level()
+        
+        if level > option: # for exercise 2
+            return          # for exercise 2
+        spaces = ' ' * level * 3
         prefix = spaces + "|__" if self.parent else ""
         print(prefix + data)
         if self.children:
@@ -51,6 +56,6 @@ def build_product_tree():
     gels.add_child(TreeNode("Peter", "Recruitment Manager"))
     gels.add_child(TreeNode("Waqas", "Policy Manager"))
     
-    nilpul.print_tree("destination")
+    nilpul.print_tree(0)
 #Checking
 build_product_tree()
