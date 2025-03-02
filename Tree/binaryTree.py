@@ -59,6 +59,21 @@ class BT:
                 return self.left.search(value)
             else:
                 return False
+            
+    def find_min(self):
+        itr = self
+        while itr.left:
+            itr = itr.left
+        
+        return itr.data
+    
+    def find_max(self):
+        itr = self
+        while itr.right:
+            itr = itr.right
+            
+        return itr.data
+
 
 
 # Checking
@@ -71,7 +86,7 @@ root.add_node(3)
 root.add_node(6)
 root.add_node(9)
 
-root.post_order()
+# root.post_order()
 
-print(root.search(10))
+print(root.find_max())
     
