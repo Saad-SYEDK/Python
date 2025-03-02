@@ -44,6 +44,21 @@ class BT:
         if self.right:
             self.right.post_order()
         print(self.data)
+        
+    def search(self, value) -> bool:
+        if self.data  == value:
+            return True
+        
+        if value > self.data:
+            if self.right:
+                return self.right.search(value)
+            else:
+                return False
+        else:
+            if self.left:
+                return self.left.search(value)
+            else:
+                return False
 
 
 # Checking
@@ -57,4 +72,6 @@ root.add_node(6)
 root.add_node(9)
 
 root.post_order()
+
+print(root.search(10))
     
