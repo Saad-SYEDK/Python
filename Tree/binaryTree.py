@@ -73,7 +73,21 @@ class BT:
             itr = itr.right
             
         return itr.data
+    
+    def calculate_sum(self):
+        list = []
+        list.append(self)
+        sum = 0
+        
+        while list:
+            curr = list.pop()
+            sum += curr.data
+            if curr.left:
+                list.append(curr.left)
+            if curr.right:
+                list.append(curr.right)
 
+        return sum
 
 
 # Checking
@@ -85,8 +99,11 @@ root.add_node(7)
 root.add_node(3)
 root.add_node(6)
 root.add_node(9)
+root.add_node(20
+              )
+root.add_node(10)
 
 # root.post_order()
 
-print(root.find_max())
+print(root.calculate_sum())
     
