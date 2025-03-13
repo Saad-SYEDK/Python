@@ -37,7 +37,24 @@ class BT:
         print(self.data)
         if self.right:
             self.right.in_order()
-            
+    
+    def iterative_in_order(self):
+        if self is None:
+            return
+        curr = self
+        stack =[]
+        while True:
+            if curr:
+                stack.append(curr)
+                curr = curr.left
+            else:
+                if len(stack) == 0:
+                    return
+                temp = stack.pop()
+                print(temp.data)
+                curr = temp.right
+                
+                
     def post_order(self):
         if self.left:
             self.left.post_order()
@@ -103,7 +120,10 @@ root.add_node(20
               )
 root.add_node(10)
 
-# root.post_order()
+root.in_order()
 
-print(root.calculate_sum())
+print("Iteraive")
+root.iterative_in_order()
+
+# print(root.calculate_sum())
     
