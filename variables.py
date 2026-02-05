@@ -21,3 +21,15 @@ print(type(name))       # Output: <class 'str'>
 print(type(age))        # Output: <class 'int'>
 print(type(height))    # Output: <class 'float'>
 print(type(is_student)) # Output: <class 'bool'>
+
+
+# Algebraic Operations with Variables
+a = 10  
+b = 5
+sum_result = a + b          # Addition
+diff_result = a - b         # Subtraction
+prod_result = a * b         # Multiplication
+quot_result = a / b         # Division
+mod_result = a % b          # Modulus
+exp_result = a ** b         # Exponentiation
+
