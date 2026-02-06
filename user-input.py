@@ -14,6 +14,7 @@ print("Your age is:", age)
 name, city = input("Please enter your name and city (separated by a space): ").split()
 print("Your name is:", name)
 print("Your city is:", city)
+
 # You can also specify a different separator for splitting the input.
 name, city = input("Please enter your name and city (separated by a comma): ").split(",")
 print("Your name is:", name.strip())
