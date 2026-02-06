@@ -1,9 +1,2 @@
-my_dict = {
-    "name": "Alice",
-    "age": 30,
-    "city": "New York"
-}
-
-del my_dict
-
-print(my_dict)  
+lis = [1, 2, 3, 4, 5, "saad", True, 3.14    ]
+print(lis)
