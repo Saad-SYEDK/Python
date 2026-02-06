@@ -6,4 +6,6 @@ Index
 1.   [Taking input from the user](\user-input.py)
 1.   [If else statement](\if-else.py)
 1.   [Operators](operators\.py)
+1.   [Loops](loops\.py)
+1.   [Functions](functions\.py)
 
