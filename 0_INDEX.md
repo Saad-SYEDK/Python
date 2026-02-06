@@ -1,4 +1,4 @@
 Index
 
-1. * [Variables] (variables.py)
+1.   [Variables](\variables.py)
 
