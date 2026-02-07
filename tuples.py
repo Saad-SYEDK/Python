@@ -22,3 +22,19 @@ def get_person_info():
 
 info = get_person_info()
 print(info)  # Output: ('Alice', 30)
+
+
+"""
+Exercise: Tuples 
+Write circle_calc() function that takes radius of a circle as an input from user and then it calculates and returns area, circumference and diameter.
+You should get these values in your main program by calling circle_calc function and then print them"""               
+
+# Solution:
+import math
+def circle_calc(radius):
+    area=math.pi*(radius**2)
+    circumference=2*math.pi*radius
+    diameter=2*radius
+    return area, circumference,diameter
+
+print(circle_calc(6))
