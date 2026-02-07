@@ -7,6 +7,7 @@ Index
 1.   [If else statement](\if-else.py)
 1.   [Operators](\operators.py)
 1.   [Loops](\loops.py)
+1.   [Functions](\functions.py)
 1.   [Scope of Variables](\scope.py)
 1.   [Dictionary](\dict.py)
 1.   [Tuple](\tuples.py)
