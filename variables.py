@@ -33,3 +33,42 @@ quot_result = a / b         # Division
 mod_result = a % b          # Modulus
 exp_result = a ** b         # Exponentiation
 
+
+"""Exercise
+1. Create a variable called break and assign it a value 5. See what happens and find out the reason behind the behavior that you see.
+
+2. Create two variables. One to store your birth year and another one to store current year. Now calculate your age using these two variables
+
+3. Store your first, middle and last name in three different variables and then print your full name using these variables
+
+4. Answer which of these are invalid variable names: _nation, 1record, record1, record_one record-one, record^one, continue .
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+# Solution to Exercise
+# 1. The variable name 'break' is a reserved keyword, and it cannot be used as a variable name. If you try to assign a value to 'break', you will get a SyntaxError.
+
+# 2.
+birth_year = 2000
+current_year = 2024
+age = current_year - birth_year
+print(age) # Output: 24
+
+# 3.
+first_name = "Saad" 
+middle_name = "Syed"
+last_name = "Kaleemulla"
+full_name = first_name + " " + middle_name + " " + last_name
+print(full_name) # Output: Saad Syed Kaleemulla
+
+# 4. Invalid variable names: 1record, record-one, record^one, continue (because 'continue' is a reserved keyword in Python)
