@@ -45,3 +45,41 @@ print(multiline_text)
 age = 30
 age_str = str(age) # Convert integer to string
 
+'''Exercise - Strings
+1. Create 3 variables to store street, city and country, now create address variable to store entire address. Use two ways of creating this variable, one using + operator and the other using f-string. Now Print the address in such a way that the street, city and country prints in a separate line
+2. Create a variable to store the string "Earth revolves around the sun"
+3. Print "revolves" using slice operator
+4. Print "sun" using negative index
+5. Create two variables to store how many fruits and vegetables you eat in a day. Now Print "I eat x veggies and y fruits daily" where x and y presents vegetables and fruits that you eat everyday. Use python f string for this.
+6. I have a string variable called s='maine 200 banana khaye'. This of course is a wrong statement, the correct statement is 'maine 10 samosa khaye'. Replace incorrect words in original strong with new ones and print the new string. Also try to do this in one line.'''
+
+#Solution
+#1.
+street = "123 Main St"
+city = "New York"
+country = "USA"
+# Using + operator
+address = street + "\n" + city + "\n" + country
+print(address)
+# Using f-string
+print(f"The address is {street}\n{city}\n{country}")
+# or
+address_f = f"{street}\n{city}\n{country}"
+print(address_f)
+
+#2.
+sentence = "Earth revolves around the sun"
+print(sentence[6:14])  # Output: revolves
+print(sentence[-3:])  # Output: sun
+
+#3.
+x = 5  # number of fruits
+y = 3  # number of vegetables
+print(f"I eat {y} veggies and {x} fruits daily")  # Output: I eat 3 veggies and 5 fruits daily
+
+#4.
+s = 'maine 200 banana khaye'
+new_s = s.replace("200", "10").replace("banana", "samosa")
+print(new_s)  # Output: maine 10 samosa khaye
+
+
