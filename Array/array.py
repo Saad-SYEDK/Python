@@ -29,6 +29,14 @@ def quick_sort(array, low, hi):
         quick_sort(array, low , i-1)    # left side of the array - from start till pivot(excluding pivot)
         quick_sort(array, i+1 , hi)    # right side of the array - from pivot(excluded) till end.
 
+
+
+
+
+
+
+
+
 def merge_sort(array):
 # Merge Sort Algorithm
 # 1. Divide the given array into two halves
@@ -70,6 +78,11 @@ def merge_sort(array):
         array[k] = right_half[j]
         j += 1
         k += 1       
+
+
+
+
+
 
 def binary_search(array, target):
 # Binary Search Algorithm
