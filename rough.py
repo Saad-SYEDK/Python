@@ -1,18 +1,22 @@
-stocks = {}
-stocks["info"] = [600, 630, 620]
-stocks["ril"] = [1430, 1490, 1567]
-stocks["mtl"] = [234, 180, 160]
 
-while True:
-    ip = input("print, add (submit any other to exit): ")
-    if ip == "print":
-        for i, j in stocks.items():
-            print(i, "==>", j, "==>", "avg: ", round(sum(j)/len(j),2))
-    elif ip == "add":
-        ip = input("Enter Stock name: ")
-        if ip in stocks:
-            stocks[ip].append(int(input("Enter price: ")))
-        else:
-            stocks[ip] = [int(input("Enter Price: "))]
-    else:
-        break
+try: 
+    val = float(input("Enter your marks: "))
+except ValueError as ve:
+    print("You DUMB! You were supposed to enter your marks, i wont be surprised if you fail")
+else:
+    
+    if 0< val > 100:
+        print("WOW! Looks like your'e dreaming")
+    else :
+        if val > 90:
+            print("A")
+        elif 80 < val < 90 :
+            print("B")
+        elif 70 < val < 80 :
+            print("C")
+        elif 60 < val < 70 :
+            print("D")
+        else :
+            print("F")
+finally:
+    print("Thanks for using the grade calculator")

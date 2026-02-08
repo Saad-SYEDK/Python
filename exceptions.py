@@ -38,3 +38,47 @@ finally:
     
 # There are many built-in exceptions, search for them.
 # We can also create custom exceptions.
+
+
+
+"""Exercise:
+ Write a Python program that takes a numeric grade from the user (between 0 and 100), and prints the corresponding letter grade:
+90-100 → A  
+80-89  → B  
+70-79  → C  
+60-69  → D  
+<60    → F
+Your program should handle the following exceptions:
+
+If the user enters a non-numeric value, catch the ValueError and display a user-friendly message.
+If the user enters a number outside the valid range (0 to 100), raise a ValueError yourself with a custom message.
+
+Use the try-except-else-finally structure:
+
+try: Attempt to parse the input and compute the letter grade.
+except: Handle conversion errors and invalid ranges.
+else: Print the final grade if everything was successful.
+finally: Print a goodbye message like "Thank you for using the Grade Calculator. Goodbye!" no matter what. """
+
+# Solution
+
+try: 
+    val = input("Enter your marks: ")
+except ValueError as ve:
+    print("You DUMB! You were supposed to enter your marks, i wont be surprised if you fail")
+else:
+    if 0< val > 100:
+        print("WOW! Looks like your'e dreaming")
+    else :
+        if val > 90:
+            print("A")
+        elif 80 < val < 90 :
+            print("B")
+        elif 70 < val < 80 :
+            print("C")
+        elif 60 < val < 70 :
+            print("D")
+        else :
+            print("F")
+finally:
+    print("Thanks for using the grade calculator")
