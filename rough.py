@@ -32,8 +32,32 @@ def merge_sort(arr):
         j += 1
         k += 1 
 
+
+def quicksort(arr, lo, hi):
+    if lo >= hi :
+        return
+    
+    pivot = arr[hi]
+    
+    
+    i = lo-1
+    for j in range(lo, hi):
+        if arr[j] <= pivot:
+            i +=1 
+            if i != j:
+                arr[i], arr[j] = arr[j], arr[i]
+    
+    i += 1
+    arr[i], arr[hi] = arr[hi], arr[i]
+    
+    quicksort(arr, lo, i-1)
+    quicksort(arr, i+1, hi)
+    
+    
+        
+
 arr = [3, 1, 6 ,2, 8]
 
-merge_sort(arr)
+quicksort(arr, 0, len(arr) - 1)
 
 print(arr)
