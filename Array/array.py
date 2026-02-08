@@ -1,3 +1,31 @@
+# Content
+#  How Arrays wors
+#  1. quick sort
+#  2. merge sort
+#  3. Binary Search
+#  4. Exercise
+
+# An array is a data structure that can store a fixed number of values of the same type.
+# THe elements in an array are stored in contiguous memory locations,
+#   which allows for efficient access and manipulation of the elements using their index.
+# Arrays can be one-dimensional (like a list) or multi-dimensional (like a matrix).
+# Arrays are fundamental data structures in programming and are used to implement other data structures like lists, stacks, queues, etc.
+# In python, we have a built-in list data structure that can be used as an array, but it is more flexible and can store elements of different types. 
+#   However, for the purpose of understanding arrays, we will treat lists as arrays in this context.
+
+# Time Complexity : 
+#   O(1) for accessing an element by index, 
+#   O(n) for searching an element, 
+#   O(n) for inserting/deleting an element (if we need to shift elements)
+#   O(n) for traversing the array
+#   In daynamic arrays (like python lists), the time complexity for inserting an element at the end is O(1) on average,
+#       but can be O(n) in worst case when the array needs to be resized.
+
+# Space Complexity : O(n) for storing n elements in the array
+
+
+
+# Common Algorithms
 def quick_sort(array, low, hi):
 # Quick Sort Algorithm
 # 1. Choose a pivot element
@@ -10,7 +38,6 @@ def quick_sort(array, low, hi):
 # Time Complexity : O(n log n) in Best and Average cases.
 #                   O(n^2) in worst case - if the pivot element is always the smallest or largest, we can avoid this by randomized pivot selection or any other methods to select the pivot.
 # Space Complexity : O(log n) in best/average case, O(n) in worst case
-
     if low < hi:
         pivot = array[hi]
         
