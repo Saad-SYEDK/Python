@@ -1,22 +1,39 @@
-
-try: 
-    val = float(input("Enter your marks: "))
-except ValueError as ve:
-    print("You DUMB! You were supposed to enter your marks, i wont be surprised if you fail")
-else:
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return
     
-    if 0< val > 100:
-        print("WOW! Looks like your'e dreaming")
-    else :
-        if val > 90:
-            print("A")
-        elif 80 < val < 90 :
-            print("B")
-        elif 70 < val < 80 :
-            print("C")
-        elif 60 < val < 70 :
-            print("D")
-        else :
-            print("F")
-finally:
-    print("Thanks for using the grade calculator")
+    
+    mid = len(arr) // 2
+    left = arr[0:mid]
+    right = arr[mid:len(arr)]
+    
+    merge_sort(left)
+    merge_sort(right)
+    
+    
+    # Logic for merge
+    i = j = k = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            arr[k] = left [i]
+            i += 1
+        else:
+            arr[k] = right[j]
+            j+=1
+        k+=1
+    
+    while i < len(left):
+        arr[k] = left[i]
+        i += 1
+        k += 1
+    while j < len(right):
+        arr[k] = right[j]    
+        j += 1
+        k += 1 
+
+arr = [3, 1, 6 ,2, 8]
+
+merge_sort(arr)
+
+print(arr)
