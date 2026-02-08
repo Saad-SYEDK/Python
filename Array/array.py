@@ -38,16 +38,19 @@ def quick_sort(array, low, hi):
 # Time Complexity : O(n log n) in Best and Average cases.
 #                   O(n^2) in worst case - if the pivot element is always the smallest or largest, we can avoid this by randomized pivot selection or any other methods to select the pivot.
 # Space Complexity : O(log n) in best/average case, O(n) in worst case
-    if low < hi:
-        pivot = array[hi]
+   
+    if low < hi: # Dont do any thing if base case
+        
+        pivot = array[hi] # taking last element as pivot
         
         i = low - 1
         for j in range(low, hi):
             if array[j] <= pivot:
-                i += 1
-                #swap array[i] wth array[j] if i and j are not equal
-                if i != j:
+                i += 1 # we keep our i just before the element that is larger than pivot,
+            
+                if i != j: #swap array[i] wth array[j] if i and j are not equal, means there is a larger element between i and pivot
                     array[i], array[j] = array[j], array[i]
+                    
         i += 1 # This is our pivot index i.e the correct position of our pivot element
         # swap array[i] with array[hi]-> this is the pivot element
         array[i], array[hi] = array[hi], array[i]
@@ -102,7 +105,7 @@ def merge_sort(array):
         i += 1
         k += 1
     while j < len(right_half):
-        array[k] = right_half[j]
+        array[k] = right_half[j]    
         j += 1
         k += 1       
 
