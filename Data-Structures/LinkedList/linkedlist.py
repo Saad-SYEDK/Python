@@ -86,7 +86,7 @@ class LinkedList:
         # If we reach the end without finding the value, return
         print("Value does not exists")
     
-    # Delete a node at a givin indez
+    # Delete a node at a given index
     def delete_at_position(self, index):
         # If the index is greater than list, return 
         if index > self.get_length():
@@ -214,7 +214,7 @@ class LinkedList:
         # If we reach the end of the list, it means there is no cycle hence return False 
         return False
     
-    # Return the middle index of the list
+    # Return the middle index/node of the list
     def find_middle(self) -> int:
         # If the list is empty return -1
         if self.head is None:
@@ -222,18 +222,18 @@ class LinkedList:
         
         # Two pointers starting at head
         slow = self.head 
-        fast = self.head.next
+        fast = self.head
 
-        counter = 0
+        counter = 0 # if we want to return the middle index
         
         while fast and fast.next:
-        # Slow pointer moves one step while the fast pointer moves two steps at a time
+            # Slow pointer moves one step while the fast pointer moves two steps at a time
             slow = slow.next
             fast = fast.next.next
             counter += 1
-        # Logic - when the fast pointer reaches the end, the slow pointer will be at the middle
-        # There is no need for slow pointer if we want to return the index, but if we want to return the middle node, we can return the slow pointer
-        return slow
+            # Logic - when the fast pointer reaches the end, the slow pointer will be at the middle
+            # There is no need for slow pointer if we want to return the index, but if we want to return the middle node, we can return the slow pointer
+        return slow #return counter if we want to returnt the middle index
     
     # Given two sorted lists, merge both
     def merge_sorted(self, given_list):
@@ -249,7 +249,7 @@ class LinkedList:
         elif given_list.head is None:
             return self.head
 
-        # We find need to create a head pointer for the new list. 
+        # We find a need to create a head pointer for the new list. 
         new_head = None
         
         # iterators for each lists

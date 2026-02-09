@@ -1,63 +1,45 @@
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return
-    
-    
-    mid = len(arr) // 2
-    left = arr[0:mid]
-    right = arr[mid:len(arr)]
-    
-    merge_sort(left)
-    merge_sort(right)
-    
-    
-    # Logic for merge
-    i = j = k = 0
-    
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            arr[k] = left [i]
-            i += 1
-        else:
-            arr[k] = right[j]
-            j+=1
-        k+=1
-    
-    while i < len(left):
-        arr[k] = left[i]
-        i += 1
-        k += 1
-    while j < len(right):
-        arr[k] = right[j]    
-        j += 1
-        k += 1 
-
-
-def quicksort(arr, lo, hi):
-    if lo >= hi :
-        return
-    
-    pivot = arr[hi]
-    
-    
-    i = lo-1
-    for j in range(lo, hi):
-        if arr[j] <= pivot:
-            i +=1 
-            if i != j:
-                arr[i], arr[j] = arr[j], arr[i]
-    
-    i += 1
-    arr[i], arr[hi] = arr[hi], arr[i]
-    
-    quicksort(arr, lo, i-1)
-    quicksort(arr, i+1, hi)
-    
-    
+class node:
+    def __init__(self, data = None, next = None):
+        self.data = data
+        self.next = next
         
+class linkedList:
+    def __init__(self):
+        self.head = None
+        
+    def insert_at_start(self, data):
+        self.head = node(data, self.head)
+        
+    def insert_at_end(self, data):
+        if self.head:
+            i = self.head
+            
+            while i.next:
+                i = i.next
+            
+            i.next = node(data)
+        else:
+            self.head = node(data, self.head)
+    
+    def del_start(self):
+        if self.head:
+            self.head = self.head.next
+        else:
+            print("List Empty!")
+    
+    
+    def display_list(self):
+        i = self.head
+        while i:
+            print(i.data, "--> ", end="")
+            i=i.next
+        print("NULL")
 
-arr = [3, 1, 6 ,2, 8]
 
-quicksort(arr, 0, len(arr) - 1)
+ll = linkedList()
 
-print(arr)
+ll.insert_at_end(0)
+
+ll.del_start()
+
+ll.display_list()
