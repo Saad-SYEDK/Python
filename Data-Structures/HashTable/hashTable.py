@@ -49,7 +49,7 @@ class HashTable:
                         raise Exception("The Underlying array in full !")
                     full_counter+=1
                 
-                    h=0 # If we reached end of array we will start from begining
+                    h=0 # If we reached end of array we will start from begin ing
                 else:
                     h+=1
                     
@@ -87,3 +87,9 @@ for _ in range(100):
 
 # ht.setItem(str("saad"),69) 
 print(ht.arr)
+
+
+
+"""Exercise:
+Implement hash table where you handle collision with other techniques like seprate chaining or quadratic probing.
+"""
