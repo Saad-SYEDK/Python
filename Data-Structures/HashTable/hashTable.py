@@ -21,18 +21,69 @@ class HashTable:
             h += ord(char) # our logic is to add ascii value of each charactor and modulo
         return h % self.Max # we do this to ensure that our values lies within the array index
     
-    
+
+    # The below fucntions do not handle collison, first understand the below code then moveon.
+    # We have to modify the same functions to handle collison 
+    """    
     def setItem(self, key, value):
-        h = self.getHash(key)
-        
+        h = self.getHash(key)     
         self.arr[h] = (key, value)
     
     def getItem(self, key):
         h = self.getHash(key)
+        return self.arr[h] 
+    """
+
+    # We will implement linear probing to Handle Collision, look at different collision handling techniques 
+    
+    def setItem(self, key, value):
+        h = self.getHash(key) 
+        if self.arr[h] == None or self.arr[h][0] == key:
+            self.arr[h] = (key, value)
+        else: # Linear Probing - search for the next bucket below, if at last index go to first
+            full_counter = 0 # We will use this to flag if the array does not have any remaining space
+            while True:
+                if h ==self.Max-1:
+                
+                    if full_counter > 1: # If we have iterated through the loop twice
+                        raise Exception("The Underlying array in full !")
+                    full_counter+=1
+                
+                    h=0 # If we reached end of array we will start from begining
+                else:
+                    h+=1
+                    
+                if self.arr[h] == None or self.arr[h][0] == key:
+                    self.arr[h] = (key, value)
+                    break
+                 
+    def getItem(self, key):
+        h = self.getHash(key)
         
-        return self.arr[h]
-
+        if self.arr[h][0] == key:
+            return self.arr[h]
+        else:
+            full_counter = 0
+            while True:
+                if h == self.Max-1:
+                    if full_counter > 1:
+                        print("Key does not Exist!")
+                        return
+                    full_counter+=1                
+                    
+                    h = 0
+                else:
+                    h+=1
+                
+                if self.arr[h][0] == key:
+                    return self.arr[h]    
+            
+    
+    
 ht = HashTable()
-ht.setItem("Name", "saad")
 
-print(ht.getItem("Name"))
+for _ in range(100):
+    ht.setItem(str("saad"),69) 
+
+# ht.setItem(str("saad"),69) 
+print(ht.arr)
