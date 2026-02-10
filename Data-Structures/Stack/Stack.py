@@ -3,9 +3,12 @@
     implement Stack using both.
     Stack can be implemented in python using List(basically arrays/linkedlist), deque(double ended queue)
     or we can also use LIFO-Queue.
+    
+    However, using deque is more efficient compared to list as they are basically dynamic arrays which can have overhead of copying.
+     
 '''
 
-#implementing a Stack class using Python deque collection, Try to implement in other way. 
+#implementing a Stack class using Python deque collection, Try to implement it with arrays. 
 from collections import deque
 
 #The reason behind creating a seprate class instead of using deque directly is to define methods
@@ -82,9 +85,34 @@ def is_balanced(str):
         return True
     else:
         return False
+    
+# or a better alternative
+
+def is_balanced_pro(str):
+    stack = Stack()
+    
+    pairs = {
+        '}': '{',
+        ')': '(',
+        ']': '[',
+        }
+
+    for char in str:
+        if char in pairs.values():  # opening bracket
+            stack.push(char)
+        elif char in pairs:  # closing bracket
+            if stack.is_empty() or stack.pop() != pairs[char]:
+                return False
+            
+    return stack.is_empty()
+
+
+
 
 # Checking
-# print(is_balanced("[a+b]*(x+2y)@@@*{gg+kk}"))
+print(is_balanced("[a+b]*(x+2y)@@@*{gg+kk}"))
+print(is_balanced_pro("[a+b]*(x+2y)@@@*{gg+kk}"))
 print(1919%5)
     
-    
+# Go to leetcode and solve some stack problems, give atleast 45 min trying to find the solution.
+# If unable then look at the solution - look for explanation and understand the intuition and solve without looking at the code.
