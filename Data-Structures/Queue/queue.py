@@ -1,4 +1,5 @@
 # No need for implentation of queue from scratch, Understanding concepts is enough
+# Just as a challenge, try implementing it with a list 
 
 from collections import deque
 class Queue:
@@ -91,5 +92,6 @@ def print_binary(n):
         queue.enqueue(current+"0")
         queue.enqueue(current+"1")
 
-print_binary(10)
+
+producer_consumer()
     
