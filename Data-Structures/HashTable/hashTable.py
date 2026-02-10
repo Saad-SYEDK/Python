@@ -12,12 +12,12 @@ class HashTable:
     def __init__(self):
         self.Max = 10
         self.arr = [None for _ in range(self.Max)]
-        self.count = 0
+        self.count = 0 # required to check the avilability of buckets in closed hashing(liner probing, quad probing, etc)
 
     def getHash(self, key):
         h = 0
         for char in key:
-            h += ord(char)
+            h += ord(char) # we will be using ascii value to generate hash value, we can use any logic
         return h % self.Max
 
     def setItem(self, key, value):
@@ -28,7 +28,7 @@ class HashTable:
         while self.arr[h] is not None and self.arr[h] != "DELETED":
             if self.arr[h][0] == key: # Update existing key
                 break
-            h = (h + 1) % self.Max #Reset to 0 if h gets larger than max
+            h = (h + 1) % self.Max #Resets h to 0 if it gets larger than max
         
         if self.arr[h] is None or self.arr[h] == "DELETED":
             self.count += 1
@@ -36,7 +36,7 @@ class HashTable:
 
     def getItem(self, key):
         h = self.getHash(key)
-        start_h = h
+        start_h = h # To know if we have iterated thorugh all the buckets in the array
         while self.arr[h] is not None:
             if self.arr[h] != "DELETED" and self.arr[h][0] == key:
                 return self.arr[h][1]
