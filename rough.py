@@ -36,10 +36,12 @@ class linkedList:
         print("NULL")
 
 
-ll = linkedList()
+# ll = linkedList()
 
-ll.insert_at_end(0)
+# ll.insert_at_end(0)
 
-ll.del_start()
+# ll.del_start()
 
-ll.display_list()
+# ll.display_list()
+
+print(-1 % 3)
