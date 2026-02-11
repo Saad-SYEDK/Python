@@ -35,8 +35,11 @@ class Employee:
         
         level = self.get_level()
         
+        '''
         if level > option: # for exercise 2
             return          # for exercise 2
+        
+        '''
         spaces = ' ' * level * 3
         prefix = spaces + "|__" if self.parent else ""
         print(prefix + data)
@@ -67,6 +70,6 @@ def build_product_tree():
     gels.add_child(Employee("Peter", "Recruitment Manager"))
     gels.add_child(Employee("Waqas", "Policy Manager"))
     
-    nilpul.print_tree(4)
+    nilpul.print_tree("both")
 #Checking
 build_product_tree()
