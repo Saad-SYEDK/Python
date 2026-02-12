@@ -153,17 +153,18 @@ class BST:
 
 # Checking
 
-root = BST(5)
+root = BST(17)
 
-root.add_node(2)
-root.add_node(7)
-root.add_node(3)
-root.add_node(6)
+root.add_node(20)
+root.add_node(4)
+root.add_node(9)
+root.add_node(18)
+root.add_node(23)
 
-root.in_order()
 
-# print("Iteraive")
+# print("Iteraive"s)
 # root.iterative_in_order()
-root.delete_node(2)
+root.delete_node(9)
 # print(root.calculate_sum())
     
+root.pre_order()
