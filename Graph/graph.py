@@ -27,6 +27,24 @@ class Graph:
             if neighbor not in visited:
                 self._dfs_recursive(neighbor, visited)
 
+    def bfs(self, start_node):
+        visited = set()
+        visited.add(start_node)
+        
+        from collections import deque # We will use queue for bfs 
+        queue = deque()
+        queue.append(start_node)
+        
+        while queue:
+            current = queue.popleft()
+            print("Visited: ", current)
+            for node in self.adj_list[current]:
+                if node not in visited:
+                    queue.append(node)
+                visited.add(node)
+                
+            
+    
 # --- Usage ---
 g = Graph()
 g.add_edge(0, 1)
@@ -40,3 +58,7 @@ g.add_edge(4, 5)
 
 print("Starting DFS from node 0:")
 g.dfs(0)
+
+
+print("Starting BFS from node 0:")
+g.bfs(0)
