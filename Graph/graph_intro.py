@@ -79,3 +79,5 @@ for i , j in edges:
         a_list[i].append(j)
 
 print(a_list)
+
+# Moving forward, we will create a class for graph and add all the methods in it
