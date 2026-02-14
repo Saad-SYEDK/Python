@@ -34,5 +34,30 @@ for i in my_iterable:
 # This is how the for loop works in python, it calls the __iter__ method to get an iterator object, and then calls the __next__ method to get the next element until it raises a StopIteration exception.
 
 # Self Learning: find out more about iterators, check out the reverse() how is it implemented.
-
+"""
+Exercise: Iterators
+Create an iterator for fibonacci series in such a way that each next returns the next element from fibonacci series.
+The iterator should stop when it reaches a limit defined in the constructor.
+"""
+print("###### Exercise: Iterators ###")   
+class FibonacciIterator:
+    def __init__(self, limit):
+        self.limit = limit
+        self.a = 0
+        self.b = 1
     
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.a > self.limit:
+            raise StopIteration
+        current = self.a
+        self.a, self.b = self.b, self.a + self.b
+        return current
+            
+
+fib = FibonacciIterator(10)
+
+for i in fib:
+    print(i)
