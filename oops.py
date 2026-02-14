@@ -28,6 +28,9 @@ person1 = Human("Tom Cruise", "Male", "Actor")
 person1.speak()
 person1.work()
 
+# Here person1 is an object of the Human class, with its own attributes and methods.
+# Object is also called  as instances of a class. Both terms are used interchangeably in OOP.
+
 # ============================================================================
 # 2. ENCAPSULATION
 # ============================================================================
@@ -42,7 +45,7 @@ class BankAccount:
         self.__balance += amount
         print(f"Deposited: ${amount}")
     
-    def get_balance(self):
+    def get_balance(self):  
         return self.__balance  # Controlled access
 
 account = BankAccount("Alice", 1000)
@@ -65,6 +68,20 @@ class Employee(Human):
 emp1 = Employee("Alice", "Female", "Software Engineer", 50000)
 emp1.speak()  # Inherited from Human
 emp1.work()   # Overridden method
+
+# isinstance() checks if an object is an instance of a class or its subclasses.
+# Used for OBJECTS
+isinstance(emp1, Employee)  # True
+isinstance(emp1, Human)     # True 
+
+# issubclass() checks if a class is a subclass of another class.
+# Used for CLASS
+issubclass(Employee, Human)     # True
+
+# MULTIPLE INHERITANCE
+    # A class can inherit from multiple parent classes.
+    # Research this topic
+
 
 # ============================================================================
 # 4. POLYMORPHISM
