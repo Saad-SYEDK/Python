@@ -36,12 +36,12 @@ class Graph:
         queue.append(start_node)
         
         while queue:
-            current = queue.popleft()
+            current = queue.popleft() # just pop to change from bfs to dfs
             print("Visited: ", current)
             for node in self.adj_list[current]:
                 if node not in visited:
                     queue.append(node)
-                visited.add(node)
+                    visited.add(node)
                 
             
     
