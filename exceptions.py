@@ -7,7 +7,7 @@
 try:
     pass # using pass to avoid syntax error, replace with actual code
     # Code that may raise an exception
-except ExceptionType: 
+except ExceptionType:  # type: ignore
     pass
     # Code to handle the exception
     # Required if finally is not used
