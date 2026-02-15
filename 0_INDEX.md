@@ -19,5 +19,6 @@ Index
 1.   [Iterators](\iterators.py)
 1.   [Generators](\generators.py)
 1.   [Comprehensions](\comprehensions.py)
+1.   [Set](\sets.py)
 
 
