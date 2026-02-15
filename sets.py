@@ -46,4 +46,16 @@ set5 = set1.difference(set2) # or set5 = set1 - set2 (minus)
 set6 = set1.symmetric_difference(set2) # or set6 = set1 ^ set2 (xor)
 
 
-# Look at the set methods for more operations like issubset(), issuperset(), isdisjoint(), etc.
+# Look at the set methods for more operations like issubset(), issuperset(), isdisjoint(), etc. 
+
+"""
+Exercise: Sets and Frozen Sets
+create any set anf try to use frozenset(setname)
+
+Find the elements in a given set that are not in another set
+Example:
+    set1 = {1,2,3,4,5}
+    set2 = {4,5,6,7,8}
+
+    ans:  {1,2,3}
+"""
