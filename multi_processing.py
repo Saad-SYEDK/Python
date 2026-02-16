@@ -33,3 +33,7 @@ if __name__ == "__main__":
     end = time.time()
 
     print("Total time: ", end - start)
+    
+    
+# Note :
+# BOth p1 and p2 processes run on thier on memory that means any referece created within p1 or p2 cannot be accessed through main also, as main runs in it memory
