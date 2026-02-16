@@ -23,5 +23,12 @@ elif args.operation == "sub":
     result = n1-n2
 
 print(result)
-
 # In Command Line if we run "python file_name.py 1 2 add" we will get 3 
+
+# we have different types of arguments like optional, positional, etc
+# THe above example is of positional arguments, we can also have optional arguments with default values, etc
+# We can also have different types of arguments like int, float, etc, we can also have choices for arguments, etc
+# We also have optional arguments.
+
+# Look into the documentation for more details on argparse module.
+# https://docs.python.org/3/library/argparse.html
