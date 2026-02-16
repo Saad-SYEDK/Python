@@ -21,5 +21,6 @@ Index
 1.   [Comprehensions](\comprehensions.py)
 1.   [Set](\sets.py)
 1.   [Command Line Arguments](\cla.py)
+1.   [Decorators](\decorators.py)
 
 
