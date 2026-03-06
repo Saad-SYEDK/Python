@@ -151,7 +151,12 @@ class BST:
         return self
             
     def find_height(self):
-        # Basic recursinve algorithm
+        # Basic recursinve algorithm:
+        # for any given node, the height of that node will be the max height from left and right child
+            #   +1 to count for current node
+            # Algorithm  
+            # Find heigth of left chid and right child
+            # THe add 1 to the highest child value and return.
         lh = rh = 0
         if self.left:
             lh = self.left.find_height()
