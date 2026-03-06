@@ -150,21 +150,32 @@ class BST:
         
         return self
             
-
+    def find_height(self):
+        # Basic recursinve algorithm
+        lh = rh = 0
+        if self.left:
+            lh = self.left.find_height()
+        if self.right:
+            rh = self.right.find_height()
+        
+        return max(lh, rh)+1
 # Checking
 
 root = BST(17)
 
 root.add_node(20)
+root.add_node(24)
 root.add_node(4)
-root.add_node(9)
-root.add_node(18)
-root.add_node(23)
+# root.add_node(9)
+# root.add_node(18)
+# root.add_node(23)
 
 
 # print("Iteraive"s)
 # root.iterative_in_order()
-root.delete_node(9)
+# root.delete_node(9)
 # print(root.calculate_sum())
     
 root.pre_order()
+
+print(root.find_height())
